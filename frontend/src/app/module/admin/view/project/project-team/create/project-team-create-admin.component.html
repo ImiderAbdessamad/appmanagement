@@ -1,0 +1,114 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'projectTeam.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'projectTeam.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'projectTeam.name' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'projectTeam.name' | translate}}" id="1" [(ngModel)]="item.name"
+                                                             />
+                                                    
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'projectTeam.description' | translate}}</label>
+                                                    <textarea id="2" pInputTextarea rows="5" cols="30" placeholder="{{'projectTeam.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="3">{{'projectTeam.project' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="projects" [(ngModel)]="item.project" id="3" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="code" placeholder="{{'projectTeam.project' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                </div>
+                            </p-tabPanel>
+                                    <p-tabPanel header="{{'projectTeam.members' | translate}}">
+                                        <p-tabView [(activeIndex)]="activeTab">
+                                            <p-tabPanel header="Création">
+                                                    <div class="grid">
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="1">First name</label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="First name"
+                                                                               id="1" [(ngModel)]="membersElement.firstName" autofocus   >
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="2">Last name</label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Last name"
+                                                                               id="2" [(ngModel)]="membersElement.lastName" autofocus   >
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="3">Email</label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Email"
+                                                                               id="3" [(ngModel)]="membersElement.email" autofocus   >
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="4">Phone</label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Phone"
+                                                                               id="4" [(ngModel)]="membersElement.phone" autofocus   >
+                                                                        
+                                                                    </div>
+                                                        <div class="field col-12 md:col-1">
+                                                            <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addMembers()"></button>
+                                                        </div>
+
+                                                    </div>
+                                            </p-tabPanel>
+                                            <p-tabPanel header="Liste {{item.members?.length > 0 ? '(' + item.members?.length + ')' : ''}}">
+                                                    <div class="card">
+                                                        <p-table [value]="item.members" [scrollable]="true" scrollHeight="200px">
+                                                            <ng-template pTemplate="header">
+                                                                <tr>
+                                                                                <th>First name</th>
+                                                                                <th>Last name</th>
+                                                                                <th>Email</th>
+                                                                                <th>Phone</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </ng-template>
+                                                            <ng-template pTemplate="body" let-p>
+                                                                <tr>
+                                                                                <td>{{p.firstName}}</td>
+                                                                                <td>{{p.lastName}}</td>
+                                                                                <td>{{p.email}}</td>
+                                                                                <td>{{p.phone}}</td>
+                                                                    <td>
+                                                                        <button (click)="deleteMembers(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                        <button (click)="editMembers(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                                    </td>
+                                                                </tr>
+                                                            </ng-template>
+                                                        </p-table>
+                                                    </div>
+
+                                            </p-tabPanel>
+                                        </p-tabView>
+                                    </p-tabPanel>
+
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

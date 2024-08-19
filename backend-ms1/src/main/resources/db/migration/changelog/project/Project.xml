@@ -1,0 +1,89 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="project">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="code" type="VARCHAR(500)"/>
+        <column name="name" type="VARCHAR(500)"/>
+        <column name="description" type="VARCHAR(500)"/>
+        <column name="start_date" type="TIMESTAMP"/>
+        <column name="end_date" type="TIMESTAMP"/>
+
+        <column name="project_state_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="project_team_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="project_type_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="project_category_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="project"
+              baseColumnNames="project_state_id"
+              referencedTableName="project_state"
+              referencedColumnNames="id"
+              constraintName="fk_project_project_state"/>
+      <addForeignKeyConstraint
+              baseTableName="project"
+              baseColumnNames="project_team_id"
+              referencedTableName="project_team"
+              referencedColumnNames="id"
+              constraintName="fk_project_project_team"/>
+      <addForeignKeyConstraint
+              baseTableName="project"
+              baseColumnNames="project_type_id"
+              referencedTableName="project_type"
+              referencedColumnNames="id"
+              constraintName="fk_project_project_type"/>
+      <addForeignKeyConstraint
+              baseTableName="project"
+              baseColumnNames="project_category_id"
+              referencedTableName="project_category"
+              referencedColumnNames="id"
+              constraintName="fk_project_project_category"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="project_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/project/Project.csv"
+            tableName="project">
+      <column name="id" type="NUMERIC"/>
+          <column name="code" type="STRING"/>
+          <column name="name" type="STRING"/>
+          <column name="description" type="STRING"/>
+          <column name="start_date" type="TIMESTAMP"/>
+          <column name="end_date" type="TIMESTAMP"/>
+        <column name="project_state" type="BIGINT"/>
+        <column name="project_team" type="BIGINT"/>
+        <column name="project_type" type="BIGINT"/>
+        <column name="project_category" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

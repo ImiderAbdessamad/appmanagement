@@ -1,0 +1,84 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'task.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'task.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'task.name' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'task.name' | translate}}" autofocus  id="1" [ngModel]="item.name">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'task.description' | translate}}</label>
+                        <textarea id="2" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'task.description' | translate}}"  [ngModel]="item.description"></textarea>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'task.startDate' | translate}}</label>
+                        <p-calendar id="3" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'task.startDate' | translate}}"  [ngModel]="item.startDate" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'task.endDate' | translate}}</label>
+                        <p-calendar id="4" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'task.endDate' | translate}}"  [ngModel]="item.endDate" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'task.taskState' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'task.taskState' | translate}}" autofocus  id="5" [ngModel]="item.taskState?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'task.assignedTo' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'task.assignedTo' | translate}}" autofocus  id="6" [ngModel]="item.assignedTo?.id">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'task.project' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'task.project' | translate}}" autofocus  id="7" [ngModel]="item.project?.code">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="{{'task.subTasks' | translate}}">
+                <div class="grid">
+                    <div class="col">
+                        <div class="card">
+                            <p-table [value]="item.subTasks" [scrollable]="true" scrollHeight="200px">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Start date</th>
+                                        <th>End date</th>
+                                        <th>Task state</th>
+                                        <th>Assigned to</th>
+                                        <th>Project</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-p>
+                                    <tr>
+                                        <td>{{p.name}}</td>
+                                        <td>{{p.description}}</td>
+                                        <td>{{p.startDate | date: dateFormatColumn}}</td>
+                                        <td>{{p.endDate | date: dateFormatColumn}}</td>
+                                        <td>{{p.taskState?.libelle}}</td>
+                                        <td>{{p.assignedTo?.id}}</td>
+                                        <td>{{p.project?.code}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

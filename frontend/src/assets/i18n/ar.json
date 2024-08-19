@@ -1,0 +1,248 @@
+{
+    "from-to": "العناصر من {first} إلى {last} (الإجمالي {totalRecords})",
+    "new": "جديد",
+    "search": "بحث",
+    "export": "تصدير",
+    "validate": "التحقق",
+    "search": "البحث...",
+    "delete": "حذف",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "next": "التالي",
+    "yes": "نعم",
+    "no": "لا",
+    "actions": "الإجراءات",
+    "confirm": "تأكيد",
+    "creation": "إنشاء",
+    "list": "قائمة",
+
+    "actionPermission": {
+        "reference": "المرجع",
+        "libelle": "التسمية",
+        "actionPermission": "إذن الإجراء",
+        "tabPan": "إذن الإجراء",
+        "header": "قائمة أذونات الإجراءات",
+        "deleteActionPermissionConfirmationMessage": "هل أنت متأكد أنك تريد حذف إذن الإجراء؟",
+        "deleteActionPermissionsConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "modelPermissionUser": {
+        "actionPermission": "إذن الإجراء",
+        "actionPermissionPlaceHolder": "اختر إذن الإجراء",
+        "actionPermissionPlaceHolderFilter": "البحث حسب إذن الإجراء",
+        "modelPermission": "إذن النموذج",
+        "modelPermissionPlaceHolder": "اختر إذن النموذج",
+        "modelPermissionPlaceHolderFilter": "البحث حسب إذن النموذج",
+        "value": "القيمة",
+        "user": "المستخدم",
+        "userPlaceHolder": "اختر مستخدمًا",
+        "userPlaceHolderFilter": "البحث حسب المستخدم",
+        "subAttribute": "السمة الفرعية",
+        "modelPermissionUser": "إذن مستخدم النموذج",
+        "tabPan": "إذن مستخدم النموذج",
+        "header": "قائمة مستخدمي إذن النموذج",
+        "deleteModelPermissionUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف مستخدم إذن النموذج؟",
+        "deleteModelPermissionUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "role": {
+        "authority": "السلطة",
+        "role": "الدور",
+        "tabPan": "الدور",
+        "header": "قائمة الأدوار",
+        "deleteRoleConfirmationMessage": "هل أنت متأكد أنك تريد حذف الدور؟",
+        "deleteRolesConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "roleUser": {
+        "role": "الدور",
+        "rolePlaceHolder": "اختر دورًا",
+        "rolePlaceHolderFilter": "البحث حسب الدور",
+        "user": "المستخدم",
+        "userPlaceHolder": "اختر مستخدمًا",
+        "userPlaceHolderFilter": "البحث حسب المستخدم",
+        "roleUser": "دور المستخدم",
+        "tabPan": "دور المستخدم",
+        "header": "قائمة مستخدمي الدور",
+        "deleteRoleUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف مستخدم الدور؟",
+        "deleteRoleUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "user": {
+        "credentialsNonExpired": "صلاحية الاعتماد غير منتهية",
+        "enabled": "مفعل",
+        "email": "البريد الإلكتروني",
+        "accountNonExpired": "الحساب غير منتهي",
+        "accountNonLocked": "الحساب غير مقفل",
+        "username": "اسم المستخدم",
+        "password": "كلمة المرور",
+        "passwordChanged": "تم تغيير كلمة المرور",
+        "modelPermissionUsers": "مستخدمو إذن النموذج",
+        "roleUsers": "مستخدمو الدور",
+        "RoleUsersPlaceHolder": "حدد عدة أدوار",
+        "user": "المستخدم",
+        "tabPan": "المستخدم",
+        "header": "قائمة المستخدمين",
+        "deleteUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف المستخدم؟",
+        "deleteUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+	"modelPermission": {
+		"reference": "المرجع",
+		"libelle": "التسمية",
+		"modelPermission": "إذن النموذج",
+		"tabPan": "إذن النموذج",
+		"header": "قائمة أذونات النماذج",
+		"deleteModelPermissionConfirmationMessage": "هل أنت متأكد أنك تريد حذف إذن النموذج؟",
+		"deleteModelPermissionsConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+	}
+
+
+
+    "projectTeam":{
+        "name": "Name",
+        "description": "Description",
+        "project": "Project",
+        "projectPlaceHolder": "Select a Project",
+        "projectPlaceHolderFilter": "Search by Project",
+        "members": "Members",
+        "projectTeam": "Project team",
+        "tabPan": "Project team",
+        "header": "Liste des project teams",
+        "deleteProjectTeamConfirmationMessage": "Are you sure you want to delete project team",
+        "deleteProjectTeamsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "projectState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "projectState": "Project state",
+        "tabPan": "Project state",
+        "header": "Liste des project states",
+        "deleteProjectStateConfirmationMessage": "Are you sure you want to delete project state",
+        "deleteProjectStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "projectType":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "projectType": "Project type",
+        "tabPan": "Project type",
+        "header": "Liste des project types",
+        "deleteProjectTypeConfirmationMessage": "Are you sure you want to delete project type",
+        "deleteProjectTypesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "taskState":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "taskState": "Task state",
+        "tabPan": "Task state",
+        "header": "Liste des task states",
+        "deleteTaskStateConfirmationMessage": "Are you sure you want to delete task state",
+        "deleteTaskStatesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "project":{
+        "code": "Code",
+        "name": "Name",
+        "description": "Description",
+        "startDate": "Start date",
+        "startDateMin": "Start date Min",
+        "startDateMax": "Start date Max",
+        "endDate": "End date",
+        "endDateMin": "End date Min",
+        "endDateMax": "End date Max",
+        "projectState": "Project state",
+        "projectStatePlaceHolder": "Select a Project state",
+        "projectStatePlaceHolderFilter": "Search by Project state",
+        "projectTeam": "Project team",
+        "projectTeamPlaceHolder": "Select a Project team",
+        "projectTeamPlaceHolderFilter": "Search by Project team",
+        "projectType": "Project type",
+        "projectTypePlaceHolder": "Select a Project type",
+        "projectTypePlaceHolderFilter": "Search by Project type",
+        "projectCategory": "Project category",
+        "projectCategoryPlaceHolder": "Select a Project category",
+        "projectCategoryPlaceHolderFilter": "Search by Project category",
+        "project": "Project",
+        "tabPan": "Project",
+        "header": "Liste des projects",
+        "deleteProjectConfirmationMessage": "Are you sure you want to delete project",
+        "deleteProjectsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "task":{
+        "name": "Name",
+        "description": "Description",
+        "startDate": "Start date",
+        "startDateMin": "Start date Min",
+        "startDateMax": "Start date Max",
+        "endDate": "End date",
+        "endDateMin": "End date Min",
+        "endDateMax": "End date Max",
+        "taskState": "Task state",
+        "taskStatePlaceHolder": "Select a Task state",
+        "taskStatePlaceHolderFilter": "Search by Task state",
+        "assignedTo": "Assigned to",
+        "assignedToPlaceHolder": "Select a Assigned to",
+        "assignedToPlaceHolderFilter": "Search by Assigned to",
+        "project": "Project",
+        "projectPlaceHolder": "Select a Project",
+        "projectPlaceHolderFilter": "Search by Project",
+        "subTasks": "Sub tasks",
+        "task": "Task",
+        "tabPan": "Task",
+        "header": "Liste des tasks",
+        "deleteTaskConfirmationMessage": "Are you sure you want to delete task",
+        "deleteTasksConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "projectCategory":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "projectCategory": "Project category",
+        "tabPan": "Project category",
+        "header": "Liste des project categorys",
+        "deleteProjectCategoryConfirmationMessage": "Are you sure you want to delete project category",
+        "deleteProjectCategorysConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "member":{
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "phone": "Phone",
+        "roles": "Roles",
+        "projectTeams": "Project teams",
+        "member": "Member",
+        "tabPan": "Member",
+        "header": "Liste des members",
+        "deleteMemberConfirmationMessage": "Are you sure you want to delete member",
+        "deleteMembersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "role":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "role": "Role",
+        "tabPan": "Role",
+        "header": "Liste des roles",
+        "deleteRoleConfirmationMessage": "Are you sure you want to delete role",
+        "deleteRolesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+"appName": "GED"
+}
+
+

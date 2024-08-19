@@ -1,0 +1,735 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /projectTeams:
+    get:
+      summary: List all projectTeams
+      operationId: listProjectTeams
+      tags:
+        - projectTeams
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projectTeams
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProjectTeams'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a projectTeam
+      operationId: createProjectTeams
+      tags:
+        - projectTeams
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectTeams/{projectTeamId}:
+    get:
+      summary: Info for a specific projectTeam
+      operationId: showProjectTeamById
+      tags:
+        - projectTeams
+      parameters:
+        - name: projectTeamId
+          in: path
+          required: true
+          description: The id of the projectTeam to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProjectTeams'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectStates:
+    get:
+      summary: List all projectStates
+      operationId: listProjectStates
+      tags:
+        - projectStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projectStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProjectStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a projectState
+      operationId: createProjectStates
+      tags:
+        - projectStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectStates/{projectStateId}:
+    get:
+      summary: Info for a specific projectState
+      operationId: showProjectStateById
+      tags:
+        - projectStates
+      parameters:
+        - name: projectStateId
+          in: path
+          required: true
+          description: The id of the projectState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProjectStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectTypes:
+    get:
+      summary: List all projectTypes
+      operationId: listProjectTypes
+      tags:
+        - projectTypes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projectTypes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProjectTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a projectType
+      operationId: createProjectTypes
+      tags:
+        - projectTypes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectTypes/{projectTypeId}:
+    get:
+      summary: Info for a specific projectType
+      operationId: showProjectTypeById
+      tags:
+        - projectTypes
+      parameters:
+        - name: projectTypeId
+          in: path
+          required: true
+          description: The id of the projectType to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProjectTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /taskStates:
+    get:
+      summary: List all taskStates
+      operationId: listTaskStates
+      tags:
+        - taskStates
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of taskStates
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/TaskStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a taskState
+      operationId: createTaskStates
+      tags:
+        - taskStates
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /taskStates/{taskStateId}:
+    get:
+      summary: Info for a specific taskState
+      operationId: showTaskStateById
+      tags:
+        - taskStates
+      parameters:
+        - name: taskStateId
+          in: path
+          required: true
+          description: The id of the taskState to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/TaskStates'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projects:
+    get:
+      summary: List all projects
+      operationId: listProjects
+      tags:
+        - projects
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projects
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Projects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a project
+      operationId: createProjects
+      tags:
+        - projects
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projects/{projectId}:
+    get:
+      summary: Info for a specific project
+      operationId: showProjectById
+      tags:
+        - projects
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: The id of the project to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Projects'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /tasks:
+    get:
+      summary: List all tasks
+      operationId: listTasks
+      tags:
+        - tasks
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of tasks
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Tasks'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a task
+      operationId: createTasks
+      tags:
+        - tasks
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /tasks/{taskId}:
+    get:
+      summary: Info for a specific task
+      operationId: showTaskById
+      tags:
+        - tasks
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          description: The id of the task to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Tasks'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectCategorys:
+    get:
+      summary: List all projectCategorys
+      operationId: listProjectCategorys
+      tags:
+        - projectCategorys
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of projectCategorys
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProjectCategorys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a projectCategory
+      operationId: createProjectCategorys
+      tags:
+        - projectCategorys
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /projectCategorys/{projectCategoryId}:
+    get:
+      summary: Info for a specific projectCategory
+      operationId: showProjectCategoryById
+      tags:
+        - projectCategorys
+      parameters:
+        - name: projectCategoryId
+          in: path
+          required: true
+          description: The id of the projectCategory to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProjectCategorys'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /members:
+    get:
+      summary: List all members
+      operationId: listMembers
+      tags:
+        - members
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of members
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Members'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a member
+      operationId: createMembers
+      tags:
+        - members
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /members/{memberId}:
+    get:
+      summary: Info for a specific member
+      operationId: showMemberById
+      tags:
+        - members
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          description: The id of the member to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Members'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /roles:
+    get:
+      summary: List all roles
+      operationId: listRoles
+      tags:
+        - roles
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of roles
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Roles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a role
+      operationId: createRoles
+      tags:
+        - roles
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /roles/{roleId}:
+    get:
+      summary: Info for a specific role
+      operationId: showRoleById
+      tags:
+        - roles
+      parameters:
+        - name: roleId
+          in: path
+          required: true
+          description: The id of the role to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Roles'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  ProjectTeam:
+    type: "object"
+    required:
+      - id
+      - name
+      - description
+    properties:
+      id:
+        type: int
+      name:
+        type: string
+      description:
+        type: string
+  ProjectTeams:
+    type: array
+    items:
+      $ref: '#/definitions/ProjectTeam'
+  ProjectState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - style
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      style:
+        type: string
+  ProjectStates:
+    type: array
+    items:
+      $ref: '#/definitions/ProjectState'
+  ProjectType:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  ProjectTypes:
+    type: array
+    items:
+      $ref: '#/definitions/ProjectType'
+  TaskState:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - style
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      style:
+        type: string
+  TaskStates:
+    type: array
+    items:
+      $ref: '#/definitions/TaskState'
+  Project:
+    type: "object"
+    required:
+      - id
+      - code
+      - name
+      - description
+      - startDate
+      - endDate
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      startDate:
+        type: date
+      endDate:
+        type: date
+  Projects:
+    type: array
+    items:
+      $ref: '#/definitions/Project'
+  Task:
+    type: "object"
+    required:
+      - id
+      - name
+      - description
+      - startDate
+      - endDate
+    properties:
+      id:
+        type: int
+      name:
+        type: string
+      description:
+        type: string
+      startDate:
+        type: date
+      endDate:
+        type: date
+  Tasks:
+    type: array
+    items:
+      $ref: '#/definitions/Task'
+  ProjectCategory:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  ProjectCategorys:
+    type: array
+    items:
+      $ref: '#/definitions/ProjectCategory'
+  Member:
+    type: "object"
+    required:
+      - id
+      - firstName
+      - lastName
+      - email
+      - phone
+    properties:
+      id:
+        type: int
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string
+  Members:
+    type: array
+    items:
+      $ref: '#/definitions/Member'
+  Role:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  Roles:
+    type: array
+    items:
+      $ref: '#/definitions/Role'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

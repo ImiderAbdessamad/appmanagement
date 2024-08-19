@@ -1,0 +1,179 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'task.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'task.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'task.name' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'task.name' | translate}}" id="1" [(ngModel)]="item.name"
+                                                             />
+                                                    
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'task.description' | translate}}</label>
+                                                    <textarea id="2" pInputTextarea rows="5" cols="30" placeholder="{{'task.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'task.startDate' | translate}}</label>
+                                                    <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="{{'task.startDate' | translate}}"  [(ngModel)]="item.startDate"
+                                                            dateFormat="{{dateFormat}}"  >
+                                                    </p-calendar>
+                                                    
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'task.endDate' | translate}}</label>
+                                                    <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="{{'task.endDate' | translate}}"  [(ngModel)]="item.endDate"
+                                                            dateFormat="{{dateFormat}}"  >
+                                                    </p-calendar>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="5">{{'task.taskState' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="taskStates" [(ngModel)]="item.taskState" id="5" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'task.taskState' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="6">{{'task.assignedTo' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="assignedTos" [(ngModel)]="item.assignedTo" id="6" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="id" placeholder="{{'task.assignedTo' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="7">{{'task.project' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="projects" [(ngModel)]="item.project" id="7" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="code" placeholder="{{'task.project' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                </div>
+                            </p-tabPanel>
+                                    <p-tabPanel header="{{'task.subTasks' | translate}}">
+                                        <p-tabView [(activeIndex)]="activeTab">
+                                            <p-tabPanel header="Création">
+                                                    <div class="grid">
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="1">Name</label>
+                                                                        <input class="mb-2 mr-2" type="text" pInputText placeholder="Name"
+                                                                               id="1" [(ngModel)]="subTasksElement.name" autofocus   >
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="2">{{'task.description' | translate}}</label>
+                                                                        <textarea id="2" pInputTextarea rows="5" cols="30" placeholder="{{'task.description' | translate}}"  [(ngModel)]="item.description"
+                                                                                 ></textarea>
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="3">Start date</label>
+                                                                        <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="Start date" [(ngModel)]="subTasksElement.startDate"
+                                                                                dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="4">End date</label>
+                                                                        <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="End date" [(ngModel)]="subTasksElement.endDate"
+                                                                                dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
+                                                                        
+                                                                    </div>
+                                                                    <div class="field col-11 md:col-6">
+                                                                        <label>Task state</label>
+                                                                        <p-dropdown  appendTo="body"  [options]="taskStates" [(ngModel)]="subTasksElement.taskState"
+                                                                                     id="5"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="libelle"
+                                                                                     placeholder="Task state"  >
+                                                                        </p-dropdown>
+                                                                        
+                                                                    </div>
+
+                                                                    <div class="field col-11 md:col-6">
+                                                                        <label>Assigned to</label>
+                                                                        <p-dropdown  appendTo="body"  [options]="assignedTos" [(ngModel)]="subTasksElement.assignedTo"
+                                                                                     id="6"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="id"
+                                                                                     placeholder="Assigned to"  >
+                                                                        </p-dropdown>
+                                                                        
+                                                                    </div>
+
+                                                                    <div class="field col-11 md:col-6">
+                                                                        <label>Project</label>
+                                                                        <p-dropdown  appendTo="body"  [options]="projects" [(ngModel)]="subTasksElement.project"
+                                                                                     id="7"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="code"
+                                                                                     placeholder="Project"  >
+                                                                        </p-dropdown>
+                                                                        
+                                                                    </div>
+
+                                                        <div class="field col-12 md:col-1">
+                                                            <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addSubTasks()"></button>
+                                                        </div>
+
+                                                    </div>
+                                            </p-tabPanel>
+                                            <p-tabPanel header="Liste {{item.subTasks?.length > 0 ? '(' + item.subTasks?.length + ')' : ''}}">
+                                                    <div class="card">
+                                                        <p-table [value]="item.subTasks" [scrollable]="true" scrollHeight="200px">
+                                                            <ng-template pTemplate="header">
+                                                                <tr>
+                                                                                <th>Name</th>
+                                                                                <th>Description</th>
+                                                                                <th>Start date</th>
+                                                                                <th>End date</th>
+                                                                                <th>Task state</th>
+                                                                                <th>Assigned to</th>
+                                                                                <th>Project</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </ng-template>
+                                                            <ng-template pTemplate="body" let-p>
+                                                                <tr>
+                                                                                <td>{{p.name}}</td>
+                                                                                <td>{{p.description}}</td>
+                                                                                <td>{{p.startDate | date: dateFormatColumn}}</td>
+                                                                                <td>{{p.endDate | date: dateFormatColumn}}</td>
+                                                                            <td>{{p.taskState?.libelle}}</td>
+                                                                            <td>{{p.assignedTo?.id}}</td>
+                                                                            <td>{{p.project?.code}}</td>
+                                                                    <td>
+                                                                        <button (click)="deleteSubTasks(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                        <button (click)="editSubTasks(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                                    </td>
+                                                                </tr>
+                                                            </ng-template>
+                                                        </p-table>
+                                                    </div>
+
+                                            </p-tabPanel>
+                                        </p-tabView>
+                                    </p-tabPanel>
+
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

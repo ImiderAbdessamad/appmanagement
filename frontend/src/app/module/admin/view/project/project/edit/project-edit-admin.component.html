@@ -1,0 +1,99 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'project.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'project.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'project.code' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'project.code' | translate}}" id="1" [(ngModel)]="item.code"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validProjectCode}"  />
+                                            <small class='p-error' *ngIf='!validProjectCode'>Code est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'project.name' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'project.name' | translate}}" id="2" [(ngModel)]="item.name"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'project.description' | translate}}</label>
+                                            <textarea id="3" pInputTextarea rows="5" cols="30" placeholder="{{'project.description' | translate}}"  [(ngModel)]="item.description"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'project.startDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="{{'project.startDate' | translate}}"  [(ngModel)]="item.startDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'project.endDate' | translate}}</label>
+                                            <p-calendar appendTo="body" id="5"  [showTime]="true" [showSeconds]="false" placeholder="{{'project.endDate' | translate}}"  [(ngModel)]="item.endDate"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="6">{{'project.projectState' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="projectStates" [(ngModel)]="item.projectState" id="6" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'project.projectState' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="7">{{'project.projectTeam' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="projectTeams" [(ngModel)]="item.projectTeam" id="7" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="id" placeholder="{{'project.projectTeam' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="8">{{'project.projectType' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="projectTypes" [(ngModel)]="item.projectType" id="8" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'project.projectType' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="9">{{'project.projectCategory' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="projectCategorys" [(ngModel)]="item.projectCategory" id="9" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'project.projectCategory' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

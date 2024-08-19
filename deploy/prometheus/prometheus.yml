@@ -1,0 +1,10 @@
+scrape_configs:
+  - job_name: 'appmanagementMs1-backend'
+  scheme: https  # Assuming HTTPS is required
+  metrics_path: '/actuator/prometheus'
+  static_configs:
+  - targets: ['appmanagementMs1-backend:8036']
+
+  tls_config:
+  insecure_skip_verify: true  # Only if you want to skip TLS verification
+
